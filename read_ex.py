@@ -8,9 +8,12 @@ print('\nUsage: read_ex.py File.fasta List.txt\n')
 # open fasta and list of reads
 try:
 	fasta = sys.argv[1]
-	lista = sys.argv[2]
 except:
 	fasta = input('Reads FASTA file: ')  
+	
+try:
+	lista = sys.argv[2]
+except:
 	lista = input('List name file: ')
 
 #Opening FASTA and LIST
