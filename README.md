@@ -11,3 +11,6 @@ usage: reads_ex.py [fileFasta] [readsId.txt]
 
 cut_seq.py	-> Make a subsample of x and cut the reads in length y.  
 usage: cut_seq.py [x1,xn] [y1,yn] 
+
+blast2gff.py	-> Make a gff file from Blast output (outfmt = 6).  
+usage: blast2gff.py [blast output file] [output name]
