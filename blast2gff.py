@@ -14,7 +14,7 @@ try:
 except:
 	name = input('insert outp name: ')
 
-outp = opem(name,'w')
+outp = open(name,'w')
 
 for i in data:
 	s = i.split()
