@@ -19,6 +19,6 @@ outp = open(name,'w')
 for i in data:
 	s = i.split()
 	if s[8] < s[9]:
-		outp.write('%s	manual	%s	%s	%s	.	+	.	' %(s[1],s[0],s[8],s[9]))
+		outp.write('%s	manual	%s	%s	%s	.	+	.	\n' %(s[1],s[0],s[8],s[9]))
 	else:
-		outp.write('%s	manual	%s	%s	%s	.	-	.	' %(s[1],s[0],s[9],s[8]))
+		outp.write('%s	manual	%s	%s	%s	.	-	.	\n' %(s[1],s[0],s[9],s[8]))
