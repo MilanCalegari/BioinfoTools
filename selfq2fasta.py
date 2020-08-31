@@ -8,7 +8,7 @@ def how_many_cats(count,number):   #how many times a need to write the fasta fil
 		value = int(number)/int(count/2)
 		return round(value) + 1
 	else:
-		return count
+		return 1
 
 try:
 	lista = sys.argv[1]
@@ -26,13 +26,14 @@ fwd = lib[0].replace('\n','')
 rev = lib[-1].replace('\n','')
 
 merged_fq = fwd.split('1')[0]+'12.fq'
+merged_fasta = merged_fq.replace('fq','fasta')
 
 call('cat %s %s > %s'%(fwd,rev,merged_fq),shell=True)
-call('seqtk seq -a %s > %s'%(merged_fq, merged_fq.replace('fq','fasta')), shell=True)
+call('seqtk seq -a %s > %s'%(merged_fq, merged_fasta), shell=True)
 call('rm '+ merged_fq, shell=True)
 
-fasta_merged = open(merged_fq.replace('fq','fasta'),'r').readlines()
-count = (len(open(merged_fq.replace('fq','fasta')).readlines()))
+fasta_merged = open(merged_fasta,'r').readlines()
+count = (len(open(merged_fasta).readlines()))
 num = how_many_cats(count,read_numbers)
 outp = open(fwd.split('1')[0]+'12_final.fasta','w')
 c = 0
@@ -42,4 +43,4 @@ while c < num:
 		outp.write(line)
 	c += 1
 
-call('rm ' + merged_fq.replace('fq','fasta'), shell=True)
+call('rm ' + merged_fasta, shell=True)
